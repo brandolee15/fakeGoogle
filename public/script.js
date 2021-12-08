@@ -1,7 +1,7 @@
 $("#form").submit(function (e) {
     e.preventDefault()
 
-    var query = $("#search").val
+    var query = $("#search").val()
 
     let result = ''
 
@@ -19,8 +19,7 @@ $("#form").submit(function (e) {
             
             result = `
 
-            <h2>${res.title}</h2><br>
-            <a target="_blank" href="${res.url}">${res.url}</a>
+            <h1>${res.title}</h1><br><a target="_blank" href="${res.url}">${res.url}</a>
             <p>${res.snippet}</p>
            
             `
@@ -29,3 +28,4 @@ $("#form").submit(function (e) {
         });
     })
 })
+
