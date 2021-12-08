@@ -5,7 +5,7 @@ $("#form").submit(function (e) {
 
     let result = ''
 
-    var API_KEY = 'ce23085fe384d4efec94547d0bb4a8e5'
+    var API_KEY = '369c85ecb37501113ce70023b03d2b4a'
 
     var url = 'http://api.serpstack.com/search?access_key=' + API_KEY + '&type=web&query=' + query
     console.log(url)
@@ -17,15 +17,23 @@ $("#form").submit(function (e) {
 
         data.organic_results.forEach(res => {
             
-            result = `
-
-            <h2>${res.title}</h2><br>
+            result = `<h2>${res.title}</h2><br>
             <a target="_blank" href="${res.url}">${res.url}</a>
-            <p>${res.snippet}</p>
-           
-            `
+            <p>${res.snippet}</p>`
 
+
+            // This limits the amount of searches to 10 links
+            let counter = 0;
+            counter++
+            if(counter <= 10){
             $("#result").append(result)
+            };
+
+            // This takes you to a random website after something has been searched 
+            $('#random').click(function() {
+                window.location.href =`${res.url}`;
+                return false;
+            });
         });
     })
 })
