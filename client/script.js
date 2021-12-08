@@ -21,13 +21,16 @@ $("#form").submit(function (e) {
             <a target="_blank" href="${res.url}">${res.url}</a>
             <p>${res.snippet}</p>`
 
+
+            // This limits the amount of searches to 10 links
             let counter = 0;
             counter++
             if(counter <= 10){
             $("#result").append(result)
             };
 
-            $('#show').click(function() {
+            // This takes you to a random website after something has been searched 
+            $('#random').click(function() {
                 window.location.href =`${res.url}`;
                 return false;
             });
