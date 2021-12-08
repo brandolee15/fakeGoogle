@@ -1,7 +1,7 @@
 $("#form").submit(function (e) {
     e.preventDefault()
 
-    var query = $("#search").val()
+    var query = $("#search").val
 
     let result = ''
 
